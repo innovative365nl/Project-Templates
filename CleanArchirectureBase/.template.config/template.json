@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Innovative365",
+  "description": "Base solution for Clean Architecture project",
+  "classifications": [ "Clean Architecture", "Solution", ".NET" ],
+  "identity": "Innovative.CleanArchitecture.Base",
+  "name": "Clean Architecture Base Template", 
+  "sourceName": "CleanArchitectureBase",
+  "preferNameDirectory": true,
+  "shortName": "inn-clean-base",
+  "symbols": {
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "bin",
+            "obj",
+            ".vs",
+            ".git",
+            ".vscode",
+            ".gitignore"
+          ]
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+    "repository": {
+      "type": "git",
+      "url": " https://github.com/innovative365nl/Project-Templates.git"
+    },
+  "guids": [
+    "6EE3DB46-3DA5-4BD0-ADF0-59F153CE87FF",
+    "E435A0B7-6DF0-4062-930F-A04E29F3B138",
+    "72462084-C59F-4BD9-B3F9-744856A34772",
+    "3C95B352-EFC6-48A9-B3FD-DCDD5926E1AE",
+    "EC98097E-3E7D-4682-955E-520D6C0F2AC4",
+    "2D89B900-FBC6-4070-831B-E1015E91465D"]
+  
+}
