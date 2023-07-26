@@ -18,9 +18,23 @@ The solution is divided into several projects to keep responsibilities separated
 
 4. **ProjectName.ArchitectureTests**: This project contains architecture tests. It uses rules to validate if the project is in line with Architecture Rules.
 
+## Architecture Rules
+- Repository Class Should Implement IRepository
+- Repository Classes Should Be Internal
+- Repository Classes Should Be Sealed
+- Repository Classes Should Not Implement Application Interfaces
+- Domain Should Not Have Dependencies On Other Projects
+- Value Objects Should Be Sealed
+- Entity Classes Should Not Have Public Constructors
+
+## Naming Conventions
+ - Interfaces Should Start With I
+
+
+
 ## Template Features: 
 1. ***Interfaces of Repositories in Domain Layer:***
-                     In this template, the interfaces of repositories are defined and stored in the Domain Layer. The Domain Layer represents the core business logic and contains the domain models and business rules. By placing the repository interfaces in the Domain Layer, we enforce the principle of separation of concerns, ensuring that the domain remains independent of the data access implementation details in the Infrastructure Layer.<br/><br/>
+   In this template, the interfaces of repositories are defined and stored in the Domain Layer. The Domain Layer represents the core business logic and contains the domain models and business rules. By placing the repository interfaces in the Domain Layer, we enforce the principle of separation of concerns, ensuring that the domain remains independent of the data access implementation details in the Infrastructure Layer.<br/><br/>
 2. ***Prepared ValueObjects:***
    To combat Primitive Obsessions and promote a rich domain model, this template includes the use of Value Objects. Value Objects are small, immutable objects that encapsulate a specific domain concept. They are designed to be used as whole values, and their equality is determined by their attribute values. By including prepared ValueObjects in the template, we encourage developers to create dedicated domain-specific abstractions, leading to a more expressive and type-safe codebase.<br/><br/>
 3. ***Entities and Aggregate Roots:***
@@ -33,27 +47,97 @@ The solution is divided into several projects to keep responsibilities separated
 5. ***IRepository Structure:***
    The template follows the common IRepository structure, where each domain entity has its own repository interface. For instance, if we have a domain entity "Product," the IRepository structure would typically include an interface named "IProductRepository" in the Domain Layer. This interface declares methods for basic CRUD operations related to the "Product" entity.
    By adhering to this IRepository structure, the code remains organized, and it's easier to manage different domain entities' data access operations. The IRepository structure facilitates the decoupling of the Domain Layer from the data access implementation, making it possible to switch out different database technologies without affecting the core business logic.
-<br/><br/>
+   <br/><br/>
 6. ***Central Package Version Management (Directory.Packages.Props):*** In larger projects, managing package versions across multiple projects can become challenging. To address this, we utilize a Directory.Packages.Props file that centralizes the management of package versions. This file lists all the required packages and their corresponding versions in one location, allowing developers to easily update or modify package versions across the entire solution. Centralized package version management ensures that all projects within the solution use the same package versions, reducing the risk of version conflicts and ensuring consistent behavior throughout the application.
-<br/><br/>
+   <br/><br/>
 7. ***Central Property Management (Directory.Build.Props):*** Similar to central package version management, we employ a Directory.Build.Props file to centralize property management for the solution. This file includes common build properties that are shared across projects, such as compiler options, build configurations, or paths to external tools. Centralized property management ensures that the same build settings and configurations are applied consistently across all projects within the solution. This simplifies maintenance and promotes standardization, making it easier for developers to understand and navigate the project's build process.
-<br/><br/>By incorporating central package version management and property management, our evolving template promotes consistency and maintainability across the entire solution. These practices make it easier for developers to manage dependencies and build configurations, allowing them to focus more on writing business logic and less on dealing with configuration-related issues. As the solution grows and more templates are introduced, these practices will facilitate smoother integration and collaboration among the different parts of the application.
+   <br/><br/>By incorporating central package version management and property management, our evolving template promotes consistency and maintainability across the entire solution. These practices make it easier for developers to manage dependencies and build configurations, allowing them to focus more on writing business logic and less on dealing with configuration-related issues. As the solution grows and more templates are introduced, these practices will facilitate smoother integration and collaboration among the different parts of the application.
+
+## Examples   
+### Example 1: Creating a Value Object
+``` 
+public class ProductName : ValueObject<string, ProductName>
+{
+    private const int NameMinLength = 3;
+    private const int NameMaxLength = 255;
+    protected override void Validate()
+    {
+        if (string.IsNullOrWhiteSpace(Value))
+            throw new NameIsEmptyException();
+        if (Value.Length > NameMaxLength)
+            throw new NameIsTooLongException(count: Value.Length);
+        if (Value.Length < NameMinLength)
+            throw new NameIsTooShortException(count: Value.Length);
+        
+        base.Validate();
+    }
+}
+```
+### Example 2: Creating an Entity
+```
+public class Product : Entity
+{
+    public ProductName ProductName { get; private set; }
+    public bool IsAvailable { get; private set; }
+    
+    private Product(string productName)
+    {
+        ProductName = ProductName.From(productName);
+        IsAvailable = false;
+    }
+
+    public static Product Create(string productName)
+    {
+        
+        return new Product(productName);
+        
+    }
+
+    public void Available()
+    {
+        IsAvailable = true;
+    }
+}
+```
+### Example 3: Creating an Aggregate Root
+```
+public class ProductGroup : AggregateRoot
+{
+    public List<Product> Products { get; private set; } 
+}
+```
+### Example 4: Creating a Repository
+```
+public class ProductGroupRepository : IRepository<Product>
+{
+    private ProductGroupContext _context;
+    public ProductGroupRepository(ProductGroupContext context)
+    {
+        _context = context;
+    }
+
+    /// <inheritdoc />
+    public Task<ProductGroup> GetByIdAsync(Guid id)
+    {
+        return _context.ProductsGroups.FindAsync(id);
+    }
+}
+```
 
 
-## Installation
+## Getting started
 
-1. Ensure you have .NET 7 (or a later version) installed.
-
-2. Clone the repository to your local machine.
-
-3. Add to the .NEt Template folder (This varies by IDE)
-
-4. Reload and start a new project using the template.
-
+1. The easy way :
+   ``` 
+      dotnet new install Innovative.CleanArchitectureTemplates::1.0.2
+   ``` 
+2. The hard way :
+   ``` 
+      git clone
 
 ## Contributing
 
-Contributions to the project are welcome! If you notice a bug, want to add a feature, or fix an issue, please create a pull request with your changes.
+Contributions to the project are welcome! If you notice a bug, want to add a feature, or fix an issue, please create a pull request with your changes. Or submit a new issue.
 
 Don't forget to add or update tests for new features and bug fixes to maintain code quality.
 
