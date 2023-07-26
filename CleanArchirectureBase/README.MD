@@ -134,7 +134,25 @@ public class ProductGroupRepository : IRepository<Product>
 2. The hard way :
    ``` 
       git clone
+      dotnet new --install <path to the template>
+    ``` 
 
+## Missing Domain Events?
+In this project we are not using Domain Events. If you want to use Domain Events, Most of the projects are dependent on the MediatR and this template has no dependency on any third party library in the domain layer. You can use Domain Events by adding MediatR to the project.
+if you want to use Domain Events based on medatr, you can use the following code for example:
+```
+//create in the Primites folder
+public interface IDomainEvent : INotification
+{
+}
+
+//Create a Domain Events Folder
+public sealed record ProductCreatedDomainEvent(Int Id) : IDomainEvent;
+{
+}
+
+
+```
 ## Contributing
 
 Contributions to the project are welcome! If you notice a bug, want to add a feature, or fix an issue, please create a pull request with your changes. Or submit a new issue.
@@ -146,5 +164,3 @@ Don't forget to add or update tests for new features and bug fixes to maintain c
 This project is licensed under the MIT License. See the `LICENSE` file for more information.
 
 ---
-
-
