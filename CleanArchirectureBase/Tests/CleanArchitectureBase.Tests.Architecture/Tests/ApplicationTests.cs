@@ -8,7 +8,7 @@ public class ApplicationTests
     public void ProjectShouldNotHaveDependenciesOnInfrastructureProject()
     {
         var result = Types
-            .InAssembly(assembly: typeof(AggregateRoot).Assembly)
+            .InAssembly(assembly: Assembly.Load(assemblyString: "CleanArchitectureBase.Application")
             .That()
             .ResideInNamespace(name: "CleanArchitectureBase.Application")
             .ShouldNot()
