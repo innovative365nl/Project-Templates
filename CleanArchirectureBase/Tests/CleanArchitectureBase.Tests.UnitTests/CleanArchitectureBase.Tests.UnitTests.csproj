@@ -16,4 +16,9 @@
         <PackageReference Include="coverlet.collector"  />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Src\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" />
+      <ProjectReference Include="..\..\Src\CleanArchitectureBase.Infrastructure\CleanArchitectureBase.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>

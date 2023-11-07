@@ -4,7 +4,7 @@ namespace CleanArchitectureBase.Infrastructure.Common.Composer;
 
 public static class RegisterDependencies
 {
-    public static IServiceCollection RegisterApplication(this IServiceCollection services)
+    public static IServiceCollection RegisterInfrastructure(this IServiceCollection services)
     {
         return services;
     }
