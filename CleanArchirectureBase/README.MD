@@ -1,6 +1,6 @@
-# .NET 7 SLN Template with Clean Architecture
+# .NET 8 SLN Template with Clean Architecture
 
-This is a C# solution template following the Clean Architecture approach. This template is designed to serve as a starting point for new C# projects, emphasizing a well-organized, scalable, and maintainable codebase. It is based on .NET 7 and includes architectural tests.
+This is a C# solution template following the Clean Architecture approach. This template is designed to serve as a starting point for new C# projects, emphasizing a well-organized, scalable, and maintainable codebase. It is based on .NET 8 and includes architectural tests.
 
 ## Introduction
 

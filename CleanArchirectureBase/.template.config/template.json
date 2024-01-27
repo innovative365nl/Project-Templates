@@ -7,9 +7,26 @@
   "name": "Clean Architecture Base Template", 
   "sourceName": "CleanArchitectureBase",
   "preferNameDirectory": true,
-  "shortName": "inn-clean-base",
   "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net8.0"
+        },
+        {
+          "choice": "none"
+        },
+        {
+          "choice": "azure functions"
+        }
+      ],
+      "defaultValue": "net8.0"
+    }
   },
+  "shortName": "inn-clean-base",
   "sources": [
     {
       "modifiers": [
@@ -28,18 +45,28 @@
   ],
   "tags": {
     "language": "C#",
-    "type": "solution"
+    "type": "project"
   },
-    "repository": {
+  "repository": {
       "type": "git",
       "url": " https://github.com/innovative365nl/Project-Templates.git"
+  },
+  "primaryOutputs": [
+    {
+      "path": "Tests/CleanArchitectureBase.Tests.UnitTests.csproj"
+    }
+  ],  
+  "postActions": [
+  {
+    "description": "Manual actions required",
+    "manualInstructions": [{
+      "text": "Run the following command"
+    }],
+    "actionId": "AC1156F7-BB77-4DB8-B28F-24EEBCCA1E5C",
+    "args": {
+      "executable": "setup.cmd",
+      "args": "<your project name>"
     },
-  "guids": [
-    "6EE3DB46-3DA5-4BD0-ADF0-59F153CE87FF",
-    "E435A0B7-6DF0-4062-930F-A04E29F3B138",
-    "72462084-C59F-4BD9-B3F9-744856A34772",
-    "3C95B352-EFC6-48A9-B3FD-DCDD5926E1AE",
-    "EC98097E-3E7D-4682-955E-520D6C0F2AC4",
-    "2D89B900-FBC6-4070-831B-E1015E91465D"]
-  
+    "continueOnError": false
+  }]
 }

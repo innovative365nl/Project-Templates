@@ -1,29 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PackageId>Innovative.CleanArchitectureTemplates</PackageId>
-        <Version>1.0.3</Version>
-        <Title>Innovative365</Title>
-        <Authors>Vincent Boots, Pieter Kroep, Matthijs van der Plas</Authors>
-        <Copyright>2023</Copyright>
-        <PackageProjectUrl>https://github.com/innovative365nl/Project-Templates</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/innovative365nl/Project-Templates/blob/main/LICENSE</PackageLicenseUrl>
-        <RepositoryUrl>https://github.com/innovative365nl/Project-Templates</RepositoryUrl>
-        <PackageReleaseNotes>Added Unit tests for better coverage
-minor bug fixes</PackageReleaseNotes>
-    </PropertyGroup>
-
     <ItemGroup>
-        <ProjectReference Include="..\CleanArchitectureBase.Application\CleanArchitectureBase.Application.csproj" />
-        <ProjectReference Include="..\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" />
+        <ProjectReference Include="..\CleanArchitectureBase.Application\CleanArchitectureBase.Application.csproj" PrivateAssets="All"/>
+        <ProjectReference Include="..\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" PrivateAssets="All"/>
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Common\Options\" />
         <Folder Include="Persistence\" />
         <Folder Include="Repositories\" />
     </ItemGroup>
-
 </Project>

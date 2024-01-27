@@ -1,6 +1,7 @@
 <Project>
     <PropertyGroup>
-        <LangVersion>11.0</LangVersion>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>12.0</LangVersion>
         <AnalysisLevel>latest</AnalysisLevel>
         <Authors>Authors Description</Authors>
         <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
