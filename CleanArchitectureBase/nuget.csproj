@@ -30,6 +30,7 @@ Minor changes in the template file</PackageReleaseNotes>
     <ItemGroup>
         <Content Include="Directory.Build.props" />
         <Content Include="Directory.Packages.props" />
+        <Content Include="CleanArchirectureBase.sln" />
         <Content Include="Src\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
         <Content Include="Tests\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
         <Content Include=".template.config\**\*" Exclude="**\**\bin\**;**\**\obj\**" />
@@ -41,6 +42,10 @@ Minor changes in the template file</PackageReleaseNotes>
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="Src\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" />
     </ItemGroup>
     
     

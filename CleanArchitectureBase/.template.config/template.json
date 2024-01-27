@@ -55,18 +55,15 @@
     {
       "path": "Tests/CleanArchitectureBase.Tests.UnitTests.csproj"
     }
-  ],  
-  "postActions": [
-  {
-    "description": "Manual actions required",
-    "manualInstructions": [{
-      "text": "Run the following command"
-    }],
-    "actionId": "AC1156F7-BB77-4DB8-B28F-24EEBCCA1E5C",
+  ],
+  "postActions": [{
+    "description": "Add projects to solution",
+    "manualInstructions": [ { "text": "Add generated project to solution manually." } ],
     "args": {
-      "executable": "setup.cmd",
-      "args": "<your project name>"
+      "solutionFolder": "src"
     },
-    "continueOnError": false
+    "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+    "continueOnError": true
   }]
+
 }
