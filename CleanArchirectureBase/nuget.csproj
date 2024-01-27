@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    
+    <PropertyGroup>
+        <PackageType>Template</PackageType>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <EnableDefaultItems>false</EnableDefaultItems>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageIcon>icon.png</PackageIcon>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <PackageId>Innovative.CleanArchitectureTemplates</PackageId>
+        <Version>1.0.5</Version>
+        <Title>Innovative365</Title>
+        <Authors>Vincent Boots</Authors>
+        <Copyright>2024</Copyright>
+        <PackageProjectUrl>https://github.com/innovative365nl/Project-Templates</PackageProjectUrl>
+        <PackageLicense>https://github.com/innovative365nl/Project-Templates/blob/main/LICENSE</PackageLicense>
+        <PackageLicenseUrl>https://github.com/innovative365nl/Project-Templates/blob/main/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/innovative365nl/Project-Templates</RepositoryUrl>
+        <PackageReleaseNotes>added support for NET 8.0
+Minor changes in the template file</PackageReleaseNotes>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <Content Include="Directory.Build.props" />
+        <Content Include="Directory.Packages.props" />
+        <Content Include="Src\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
+        <Content Include="Tests\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
+        <Content Include=".template.config\**\*" Exclude="**\**\bin\**;**\**\obj\**" />
+        <Compile Remove="**\*" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Include="icon.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
+    
+    
+</Project>
