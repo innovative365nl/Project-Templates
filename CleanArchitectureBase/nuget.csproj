@@ -13,7 +13,7 @@
     <PropertyGroup>
         <ContentTargetFolders>content</ContentTargetFolders>
         <PackageId>Innovative.CleanArchitectureTemplates</PackageId>
-        <Version>1.0.5</Version>
+        <Version>1.1.0</Version>
         <Title>Innovative365</Title>
         <Authors>Vincent Boots</Authors>
         <Copyright>2024</Copyright>
@@ -43,10 +43,7 @@ Minor changes in the template file</PackageReleaseNotes>
         <PackagePath></PackagePath>
       </None>
     </ItemGroup>
-    
-    <ItemGroup>
-      <ProjectReference Include="Src\CleanArchitectureBase.Domain\CleanArchitectureBase.Domain.csproj" />
-    </ItemGroup>
+
     
     
 </Project>
