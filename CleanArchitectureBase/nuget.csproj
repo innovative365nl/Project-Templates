@@ -13,7 +13,7 @@
     <PropertyGroup>
         <ContentTargetFolders>content</ContentTargetFolders>
         <PackageId>Innovative.CleanArchitectureTemplates</PackageId>
-        <Version>1.1.0</Version>
+        <Version>8.0.1</Version>
         <Title>Innovative365</Title>
         <Authors>Vincent Boots</Authors>
         <Copyright>2024</Copyright>
@@ -21,20 +21,36 @@
         <PackageLicense>https://github.com/innovative365nl/Project-Templates/blob/main/LICENSE</PackageLicense>
         <PackageLicenseUrl>https://github.com/innovative365nl/Project-Templates/blob/main/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/innovative365nl/Project-Templates</RepositoryUrl>
-        <PackageReleaseNotes>added support for NET 8.0
-Minor changes in the template file</PackageReleaseNotes>
+        <PackageReleaseNotes>Fixed support for Rider 2024.
+Added Azure function in project.</PackageReleaseNotes>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 
 
     <ItemGroup>
+        <Content Include="CleanArchitectureBase.sln" />
         <Content Include="Directory.Build.props" />
         <Content Include="Directory.Packages.props" />
-        <Content Include="CleanArchirectureBase.sln" />
         <Content Include="Src\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
         <Content Include="Tests\**\*" Exclude="**\bin\**\*;**\obj\**\*" />
         <Content Include=".template.config\**\*" Exclude="**\**\bin\**;**\**\obj\**" />
         <Compile Remove="**\*" />
+        <Content Update="Src\CleanArchitectureBase.Presentation.AzFunc\Properties\launchSettings.json">
+          <Link>Src\CleanArchitectureBase.Presnetation.AzFunc\Properties\launchSettings.json</Link>
+        </Content>
+        <Content Update="Src\CleanArchitectureBase.Presentation.AzFunc\.gitignore">
+          <Link>Src\CleanArchitectureBase.Presnetation.AzFunc\.gitignore</Link>
+        </Content>
+        <Content Update="Src\CleanArchitectureBase.Presentation.AzFunc\host.json">
+          <Link>Src\CleanArchitectureBase.Presnetation.AzFunc\host.json</Link>
+        </Content>
+        <Content Update="Src\CleanArchitectureBase.Presentation.AzFunc\local.settings.json">
+          <Link>Src\CleanArchitectureBase.Presnetation.AzFunc\local.settings.json</Link>
+        </Content>
+        <Content Update="Src\CleanArchitectureBase.Presentation.AzFunc\Program.cs">
+          <Link>Src\CleanArchitectureBase.Presnetation.AzFunc\Program.cs</Link>
+        </Content>
+        
     </ItemGroup>
     
     <ItemGroup>
